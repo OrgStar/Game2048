@@ -30,15 +30,15 @@ src目录用于存放项目的包及java源码文件。
 
 下面是src目录的子目录：
 > src<br>
-> ├ com.star.MainActivity<br>
-> ├ com.star.CornerTextView<br>
-> ├ com.star.GameView<br>
-> └ com.star.Card<br>
+> ├ com.star.game2048.MainActivity<br>
+> ├ com.star.game2048.CornerTextView<br>
+> ├ com.star.game2048.GameView<br>
+> └ com.star.game2048.Card<br>
 
-- com.star.MainActivity   — 主程序
-- com.star.CornerTextView — 圆角TextView类
-- com.star.GameView		  — 游戏界面类扩展GridView
-- com.star.Card			  — 卡牌类
+- com.star.game2048.MainActivity   — 主程序
+- com.star.game2048.CornerTextView — 圆角TextView类
+- com.star.game2048.GameView	   — 游戏界面类扩展GridView
+- com.star.game2048.Card		   — 卡牌类
 
 
 **2、res目录**<br>
@@ -69,21 +69,6 @@ AndroidManifest.xml用于设置应用程序的版本、主题、用户权限及�
 ## **二、项目的功能流程** ##
 
 #### 1、APP启动流程 ####
-AndroidManifest.xml注册的启动界面为"AppStart"，具体文件为net.oschina.app\AppStart.java文件。启动显示欢迎界面之后，通过意图(Intent)跳转到首页（net.oschina.app.ui\Main.java）。<br>
-*注：除启动界面之外，其他所有界面都放在src\net.oschina.app.ui包中。*
-
-#### 2、APP访问API流程 ####
-
-以首页资讯列表显示访问API数据为例：
-
-**1) 初始化控件**<br>
-首页Activity(Main.java)在onCreate()方法里面加载布局文件(Main.xml)，对下拉刷新列表控件(PullToRefreshListView)进行了初始化，并设置了数据适配器(ListViewNewsAdapter)。<br>
-*注：Main.xml布局文件在res\layout目录下；PullToRefreshListView控件在net.oschina.app.widget包；ListViewNewsAdapter适配器在net.oschina.app.adapter包。*
-
-**2) 异步线程访问**<br>
-列表控件初始化后，开启一个线程方法(loadLvNewsData())，该方法中调用全局应用程序类(AppContext)来访问API客户端类(ApiClient)。通过ApiClient以http方式请求服务器的API。返回响应的XML数据，再通过实体Bean(NewsList)解析XML，返回实体(NewsList)给UI控件(PullToRefreshListView)展示。<br>
-*注：AppContext全局应用程序类在net.oschina.app包；ApiClient API客户端类在net.oschina.app.api包。*
-
-**3) 解析数据显示**<br>
-服务得到请求，将返回对应的资讯XML数据，再通过资讯实体类(NewsList)解析XML，返回实体(NewsList)给UI控件(PullToRefreshListView)展示。<br>
-*注：NewsList实体类在net.oschina.app.bean包。*
+AndroidManifest.xml注册的启动界面为"MainActivity"，具体文件为com/star/game2048/MainActivity.java文件。
+从而activity_main.xml被加载。CornerTextView.java、GameView.java会相继被执行。GameView.java-->addCards-->
+Card.java

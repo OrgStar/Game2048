@@ -53,6 +53,7 @@ public class GameView extends GridLayout {
 	@Override
 	protected void onSizeChanged(int w, int h, int oldw, int oldh) {
 		super.onSizeChanged(w, h, oldw, oldh);
+		System.out.println("GameView----------->onSizeChanged");
 		int CardWidth = (Math.min(w, h) - 20) / 4;
 
 		addCards(CardWidth, CardWidth);
@@ -60,7 +61,7 @@ public class GameView extends GridLayout {
 	}
 
 	private void initGameView(Context context) {
-
+		System.out.println("GameView----------->initGameView");
 		gameViewLayout = (GridLayout) findViewById(R.id.gameViewLayout);
 		gameViewLayout.setBackgroundColor(0xFFD4C8BD);
 		setColumnCount(4);
@@ -116,7 +117,6 @@ public class GameView extends GridLayout {
 				cardMaps[x][y].setNum(0);
 			}
 		}
-
 		addRandomNum();
 		addRandomNum();
 	}

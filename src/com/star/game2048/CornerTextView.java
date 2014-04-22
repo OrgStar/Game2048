@@ -6,7 +6,9 @@ import android.graphics.Paint;
 import android.graphics.Paint.Align;
 import android.graphics.Paint.FontMetrics;
 import android.graphics.RectF;
+import android.graphics.Typeface;
 import android.util.AttributeSet;
+import android.util.DisplayMetrics;
 import android.widget.TextView;
 
 public class CornerTextView extends TextView {
@@ -40,7 +42,9 @@ public class CornerTextView extends TextView {
 	private void initCornerTextView() {
 		System.out.println("CornerTextView--------->initCornerTextView");
 		mPain = new Paint(Paint.ANTI_ALIAS_FLAG);
-
+		mPain.setTypeface(Typeface.DEFAULT_BOLD);
+		
+		
 		cornerBkColor = 0xFFBBADA0;
 		cornerTextColor = 0xFFEEE4DA;
 		cornerTextSize = 20;
@@ -85,8 +89,16 @@ public class CornerTextView extends TextView {
 	public void setTextSize(float size) {
 		System.out.println("CornerTextView--------->setTextSize");
 		System.out.println("CornerTextView--------->size " + size);
+		
 		cornerTextSize = size;
 		super.setTextSize(size);
+	}
+
+	private void setCornerTextSize(float size){
+		DisplayMetrics dm = getResources().getDisplayMetrics();
+		float value = dm.scaledDensity;
+		
+		mPain.setTextSize(size * value);
 	}
 
 	/*
@@ -113,7 +125,7 @@ public class CornerTextView extends TextView {
 
 	@Override
 	public void draw(Canvas canvas) {
-		System.out.println("CornerTextView--------->draw");
+		//System.out.println("CornerTextView--------->draw");
 		super.draw(canvas);
 		int width = getWidth();
 		int height = getHeight();
@@ -121,10 +133,11 @@ public class CornerTextView extends TextView {
 		RectF rectF = new RectF(0, 0, width, height); // RectF对象
 		mPain.setColor(cornerBkColor);
 		canvas.drawRoundRect(rectF, 10, 10, mPain); // 绘制圆角矩形
-		mPain.setTextSize(cornerTextSize);
+		
+		setCornerTextSize(cornerTextSize);
 		mPain.setColor(cornerTextColor);
 		mPain.setTextAlign(Align.CENTER);
-		mPain.setFakeBoldText(true);
+	//	mPain.setFakeBoldText(true);
 
 		
 		FontMetrics fontMetrics = mPain.getFontMetrics();
@@ -134,9 +147,9 @@ public class CornerTextView extends TextView {
 		if (insertStaticString != null) {
 			textBaseY = height - (height - fontHeight) / 3 - fontMetrics.bottom;
 			float textBaseY1 = textBaseY / 2;
-			mPain.setTextSize(21);
+			setCornerTextSize(16);
 			canvas.drawText(insertStaticString, width / 2, textBaseY1, mPain);
-			mPain.setTextSize(32);
+			setCornerTextSize(20);
 			int strWidth = Math.max(
 					getStringWidth(mPain, (String) cornerString),
 					getStringWidth(mPain, insertStaticString));

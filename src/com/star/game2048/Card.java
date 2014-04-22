@@ -50,56 +50,65 @@ public class Card extends FrameLayout {
 			lable.setText("");
 			lable.setBackgroundColor(getResources().getColor(R.color.titledef));
 		}else {
-			lable.setTextSize(40);
+			
 			switch (num) {
 			case 2:
+				lable.setTextSize(32);
 				lable.setTextColor(getResources().getColor(R.color.tile2ft));
 				lable.setBackgroundColor(getResources().getColor(R.color.tile2bk));
 				break;
 			case 4:
+				lable.setTextSize(32);
 				lable.setTextColor(getResources().getColor(R.color.tile4ft));
 				lable.setBackgroundColor(getResources().getColor(R.color.tile4bk));
 				break;
 			case 8:
+				lable.setTextSize(32);
 				lable.setTextColor(getResources().getColor(R.color.tile8ft));
 				lable.setBackgroundColor(getResources().getColor(R.color.tile8bk));
 				break;
 			case 16:
+				lable.setTextSize(30);
 				lable.setTextColor(getResources().getColor(R.color.tile16ft));
 				lable.setBackgroundColor(getResources().getColor(R.color.tile16bk));
 				break;
 			case 32:
+				lable.setTextSize(30);
 				lable.setTextColor(getResources().getColor(R.color.tile32ft));
 				lable.setBackgroundColor(getResources().getColor(R.color.tile32bk));
 				break;
 			case 64:
+				lable.setTextSize(30);
 				lable.setTextColor(getResources().getColor(R.color.tile64ft));
 				lable.setBackgroundColor(getResources().getColor(R.color.tile64bk));
 				break;
 			case 128:
+				lable.setTextSize(28);
 				lable.setTextColor(getResources().getColor(R.color.tile128ft));
 				lable.setBackgroundColor(getResources().getColor(R.color.tile128bk));
 				break;
 			case 256:
+				lable.setTextSize(28);
 				lable.setTextColor(getResources().getColor(R.color.tile256ft));
 				lable.setBackgroundColor(getResources().getColor(R.color.tile256bk));
 				break;
 			case 512:
+				lable.setTextSize(28);
 				lable.setTextColor(getResources().getColor(R.color.tile512ft));
 				lable.setBackgroundColor(getResources().getColor(R.color.tile512bk));
 				break;
 			case 1024:
-				lable.setTextSize(35);
+				lable.setTextSize(24);
 				lable.setTextColor(getResources().getColor(R.color.tile1024ft));
 				lable.setBackgroundColor(getResources().getColor(R.color.tile1024bk));
 				break;
 			case 2048:
-				lable.setTextSize(33);
+				lable.setTextSize(23);
 				lable.setTextColor(getResources().getColor(R.color.tile2048ft));
 				lable.setBackgroundColor(getResources().getColor(R.color.tile2048bk));
 				break;
 			default : 
-				lable.setTextSize(22);
+				lable.setTextSize(20);
 				lable.setTextColor(getResources().getColor(R.color.tile2048ft));
 				lable.setBackgroundColor(getResources().getColor(R.color.tile2048bk));
 				

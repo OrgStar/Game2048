@@ -22,6 +22,7 @@
                 android:id="@+id/tvCurrentScore"
                 android:layout_width="wrap_content"
                 android:layout_height="55dp"
+                android:text="SCORE"
                 android:layout_marginRight="4dp"
                 android:layout_marginTop="10dp" >
             </com.star.game2048.CornerTextView>
@@ -29,6 +30,7 @@
             <com.star.game2048.CornerTextView
                 android:id="@+id/tvBestScore"
                 android:layout_width="wrap_content"
+                android:text="BEST"
                 android:layout_height="55dp"
                 android:layout_marginRight="10dp"
                 android:layout_marginTop="10dp" >
@@ -50,7 +52,7 @@
         android:gravity="center"
         android:paddingBottom="8dp"
         android:text="@string/_2048_"
-        android:textSize="20sp" >
+        android:textSize="18sp" >
     </TextView>
 
 </LinearLayout>
