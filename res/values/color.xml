@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="tvScoreColor">#BBADA0</color>
+    
+    <color name="titledef">#CCC0B3</color>
+	<color name="tile2bk">#eee4da</color>
+	<color name="tile2ft">#776E65</color>
+	
+	<color name="tile4bk">#ede0c8</color>
+	<color name="tile4ft">#776E65</color>
+	
+	<color name="tile8bk">#F2B179</color>
+	<color name="tile8ft">#f9f6f2</color>
+	
+	<color name="tile16bk">#f59563</color>
+	<color name="tile16ft">#f9f6f2</color>
+	
+	<color name="tile32bk">#f67c5f</color>
+	<color name="tile32ft">#f9f6f2</color>
+	
+	<color name="tile64bk">#f65e3b</color>
+	<color name="tile64ft">#f9f6f2</color>
+	
+	<color name="tile128bk">#edcf72</color>
+	<color name="tile128ft">#f9f6f2</color>
+	
+	<color name="tile256bk">#edcc61</color>
+	<color name="tile256ft">#f9f6f2</color>
+
+	<color name="tile512bk">#edc850</color>
+	<color name="tile512ft">#f9f6f2</color>
+	
+	<color name="tile1024bk">#edc53f</color>
+	<color name="tile1024ft">#f9f6f2</color>
+	
+	<color name="tile2048bk">#edc22e</color>
+	<color name="tile2048ft">#f9f6f2</color>
+
+</resources>
