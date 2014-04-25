@@ -9,7 +9,7 @@ Game2048
 如果编译出错，请修改项目根目录下的 project.properties 文件。<br>
 推荐使用Android 4.0 以上版本的SDK,请使用JDK1.6编译：
 
-> target=android-15
+> target=android-17
 
 **本项目采用 GPL 授权协议，欢迎大家在这个基础上进行改进，并与大家分享。**
 

@@ -4,7 +4,7 @@
     android:layout_height="fill_parent"
     android:orientation="vertical" >
 
-    <LinearLayout
+    <!-- <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
@@ -35,7 +35,39 @@
                 android:layout_marginRight="10dp"
                 android:layout_marginTop="10dp" >
             </com.star.game2048.CornerTextView>
-        </LinearLayout>
+        </LinearLayout> -->
+        
+      <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="@drawable/corner_bg_top"
+        android:orientation="vertical" >
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:gravity="right"
+            android:orientation="horizontal" >
+
+            <com.star.game2048.CornerTextView
+                android:id="@+id/tvCurrentScore"
+                android:layout_width="wrap_content"
+                android:layout_height="55dp"
+                android:text="SCORE"
+                android:layout_marginRight="4dp"
+                android:layout_marginTop="20dp" >
+            </com.star.game2048.CornerTextView>
+
+            <com.star.game2048.CornerTextView
+                android:id="@+id/tvBestScore"
+                android:layout_width="wrap_content"
+                android:text="BEST"
+                android:layout_height="55dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="20dp" >
+            </com.star.game2048.CornerTextView>
+        </LinearLayout> 
 
         <com.star.game2048.GameView
             android:id="@+id/gameViewLayout"
@@ -45,12 +77,11 @@
     </LinearLayout>
 
     <TextView
-        android:layout_marginBottom="16dp"
         android:background="@drawable/corner_bg_bottom"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:paddingBottom="8dp"
+        android:paddingBottom="20dp"
         android:text="@string/_2048_"
         android:textSize="18sp" >
     </TextView>

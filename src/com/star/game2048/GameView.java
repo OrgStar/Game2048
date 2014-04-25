@@ -14,10 +14,14 @@ import android.widget.GridLayout;
 
 public class GameView extends GridLayout {
 
+	// 卡片数值
 	private Card cardMaps[][] = new Card[4][4];
+	// 数值为0的卡片
 	private List<Point> emptyPoint = new ArrayList<Point>();
+	// 当前GameView的class,实现其他类可以直接调用该类的方法
 	private static GameView gameViewCls;
 	private GridLayout gameViewLayout;
+	
 	private boolean isGameStarted = false;
 	private boolean isGameSuccess = false;
 
@@ -53,19 +57,35 @@ public class GameView extends GridLayout {
 	@Override
 	protected void onSizeChanged(int w, int h, int oldw, int oldh) {
 		super.onSizeChanged(w, h, oldw, oldh);
+		MainActivity.getMainActivity().setScreenOrientation(w,h);
+		
+		LayoutParams lp = new LayoutParams();
+		lp.setMargins(0, Math.abs(w-h) / 2, 0, 0);
+		
+		gameViewLayout.setLayoutParams(lp);
 		System.out.println("GameView----------->onSizeChanged");
+		System.out.println("onSizeChanged Width: "+w);
+		System.out.println("onSizeChanged Height: "+h);
 		int CardWidth = (Math.min(w, h) - 20) / 4;
 
 		addCards(CardWidth, CardWidth);
 		startGame();
 	}
 
+	/*
+	 * 初始化游戏主界面
+	 */
 	private void initGameView(Context context) {
 		System.out.println("GameView----------->initGameView");
+		
+		// 获取GameViewLayout并设置背景颜色
 		gameViewLayout = (GridLayout) findViewById(R.id.gameViewLayout);
 		gameViewLayout.setBackgroundColor(0xFFD4C8BD);
+		
+		// 设置GridView每行只有4个卡片
 		setColumnCount(4);
-
+		
+		// 设置监听OnTouch事件，判断用户滑动方向
 		gameViewLayout.setOnTouchListener(new View.OnTouchListener() {
 			private float startX, startY, offsetX, offsetY;
 
@@ -85,19 +105,19 @@ public class GameView extends GridLayout {
 
 					if (Math.abs(offsetX) > Math.abs(offsetY)) {
 						if (offsetX < -5) {
-							System.out.println("Right");
+							//System.out.println("Right");
 							swipeRight();
 						} else if (offsetX > 5) {
-							System.out.println("Left");
+							//System.out.println("Left");
 							swipeLeft();
 						}
 					} else {
 
 						if (offsetY < -5) {
-							System.out.println("Down");
+							//System.out.println("Down");
 							swipeDown();
 						} else if (offsetY > 5) {
-							System.out.println("Up");
+							//System.out.println("Up");
 							swipeUp();
 						}
 					}
@@ -108,8 +128,15 @@ public class GameView extends GridLayout {
 		});
 	}
 
+	/*
+	 *  开始游戏 的准备工作
+	 *  初始化16张游戏卡片为0  
+	 *  并设置数值（2,4）两个随机游戏卡片
+	 */
 	public void startGame() {
 		isGameStarted = false;
+		
+		// 调用MainActivity的方法清除游戏得分
 		MainActivity.getMainActivity().clearScore();
 
 		for (int y = 0; y < 4; y++) {
@@ -121,6 +148,9 @@ public class GameView extends GridLayout {
 		addRandomNum();
 	}
 
+	/*
+	 * 添加随机数
+	 */
 	private void addRandomNum() {
 		emptyPoint.clear();
 		for (int y = 0; y < 4; y++) {
@@ -134,6 +164,9 @@ public class GameView extends GridLayout {
 		cardMaps[point.x][point.y].setNum(Math.random() > 0.1 ? 2 : 4);
 	}
 
+	/*
+	 * 添加16张游戏卡片
+	 */
 	private void addCards(int cardWidth, int cardheight) {
 		Card c;
 		for (int y = 0; y < 4; y++) {
@@ -272,6 +305,9 @@ public class GameView extends GridLayout {
 		}
 	}
 
+	/*
+	 * 判断游戏是否结束、胜利
+	 */
 	private void isGameOver() {
 
 		boolean isGameOver = true;

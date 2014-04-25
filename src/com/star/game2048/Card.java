@@ -25,8 +25,12 @@ public class Card extends FrameLayout {
 		initCard();
 	}
 
+	/*
+	 * 初始化卡片
+	 */
 	private void initCard(){
 		
+		// new自定义圆角textview
 		lable = new CornerTextView(getContext());
 		
 		lable.setBackgroundColor(0x33FFFFFF);
